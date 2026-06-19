@@ -1,48 +1,56 @@
-# ITMO Loops WAV Generator
+# 🎵 WAV Generator
 
-Небольшая C++ программа, которая читает музыкальное описание в формате ITMO Loops DSL и генерирует `.wav` файл.
+**WAV Generator** — это небольшой C++ генератор музыки, который превращает текстовое описание трека в настоящий `.wav` файл.
 
-## Что умеет
+Пишешь музыку в простом DSL-формате — получаешь готовый звук.
 
-* читает треки из `.txt`;
-* поддерживает инструменты `sampler`, `sine`, `triangle`, `square`;
-* поддерживает эффекты `gain`, `echo`, `tremolo`;
-* генерирует mono WAV 44.1 kHz / 16-bit;
-* поддерживает паттерны, BPM, velocity, attack/release и loop-сэмплы.
+## ✨ Возможности
 
-## Сборка
+* 🎼 чтение треков из `.txt` файлов;
+* 🥁 поддержка сэмплов через `sampler`;
+* 🎹 генерация звука через `sine`, `triangle`, `square`;
+* 🔊 эффекты `gain`, `echo`, `tremolo`;
+* ⏱️ поддержка BPM, паттернов и resolution;
+* 🎚️ velocity, attack/release и loop-сэмплы;
+* 💿 экспорт в mono WAV 44.1 kHz / 16-bit.
+
+## 🛠️ Сборка
 
 ```bash
 cmake -S . -B build
 cmake --build build
 ```
 
-## Запуск
+## 🚀 Запуск
 
 ```bash
-./build/bin/itmoloops examples/lick.txt lick.wav
+./build/bin/decoder examples/lick.txt lick.wav
 ```
 
-Формат команды:
+Общий формат:
 
 ```bash
-./build/bin/itmoloops <input.txt> <output.wav>
+./build/bin/decoder <input.txt> <output.wav>
 ```
 
-## Примеры
+## 🎧 Примеры
 
-Готовые треки лежат в папке `examples/`:
+В папке `examples/` уже есть готовые треки:
 
 ```bash
-./build/bin/itmoloops examples/memory.txt memory.wav
-./build/bin/itmoloops examples/sweden.txt sweden.wav
+./build/bin/decoder examples/memory.txt memory.wav
+./build/bin/decoder examples/sweden.txt sweden.wav
 ```
 
-## Структура проекта
+## 📁 Структура проекта
 
 ```text
-bin/        точка входа программы
-lib/        парсер, рендер, WAV-запись и обработка звука
-samples/    WAV-сэмплы для sampler-инструментов
+bin/        запуск программы
+lib/        парсер, рендеринг, WAV и обработка звука
+samples/    WAV-сэмплы для инструментов
 examples/   примеры треков
 ```
+
+## 🌟 Идея проекта
+
+Проект показывает, как из обычного текста можно собрать музыку: распарсить ноты, применить инструменты и эффекты, а затем сохранить результат в WAV.
